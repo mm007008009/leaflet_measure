@@ -44,16 +44,17 @@
 <script>
 	//初始化两个点，可不要
 	pointArray.push(L.latLng(25, 102));
+	pointArray.push(L.latLng(37, 98));
 	pointArray.push(L.latLng(40, 116));
 	
-	markerArray=[];
-	polyLineArray=[];
-	
-	measureDistance();
-	
+	active=true;
 	deactiveMeasure();
 	
-	//activeMeasure();
+	setTimeout(function(){
+		activeMeasure();
+	},1000);
+	
+	
 	
 </script>
 

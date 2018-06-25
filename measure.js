@@ -1,4 +1,4 @@
-    var active = true;//标记是否激活
+    var active = false;//标记是否激活
 	var pointArray =[];//坐标
 	var markerArray =[];//marker集合
 	var polyLineArray=[];//polyline集合
