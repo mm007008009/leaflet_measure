@@ -12,4 +12,5 @@ Welcome download and comments
 
 欢迎下载、评论
 
-
+you can check the demo here:
+https://mm007008009.github.io/leaflet_measure/
