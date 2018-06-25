@@ -42,14 +42,13 @@
 		direction:"right"
 	};
 	
-	//初始化两个点，可不要
-	pointArray.push(L.latLng(25, 102));
-	pointArray.push(L.latLng(40, 116));
+
 	
 	//第一层
     resultLayer = L.featureGroup().addTo(mymap);
 	measureArray.push(resultLayer);
-    measureDistance();
+	
+
 	
 	//根据点集合重绘，并计算距离，并显示最终popup
     function measureDistance(isEnding) {
@@ -136,17 +135,25 @@
 						//删除点线层
 						for(let i=0;i<measureArray.length;i++)
 						{
-							//每次测量都放至于数组中的一个元素中
+							let deleteMeasureElement = false;
+							//每次测量都放至于数组中的一个元素中,遍历数组中每一个元素
 							measureArray[i].eachLayer(function(layer,index){
 								
 								if(layer.getLatLng&&(ll==layer.getLatLng()))
 								{	
 									mymap.removeLayer(measureArray[i]);
-									measureArray.splice(i,1);
-									measureIndex--;
+									deleteMeasureElement = i;
+									//measureIndex--;
 									return;
 								}
 							});
+							
+							if(deleteMeasureElement){
+								measureArray.splice(deleteMeasureElement,1);
+								measureIndex--;
+								break;
+							}
+							
 						}
 						
 					});
